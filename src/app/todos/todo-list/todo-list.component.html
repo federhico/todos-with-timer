@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="todo-list">
+    <div *ngIf="todos$ | async as todos">
+      <h1 class="page-title">TODOS</h1>
+      <div class="search-container">
+        <mat-form-field style="width: 40vw" >
+          <input matInput type="text" [(ngModel)]="searchValue" />
+          <button
+            *ngIf="searchValue"
+            matSuffix
+            mat-icon-button
+            aria-label="Clear"
+            (click)="searchValue = ''"
+          >
+            <mat-icon>close</mat-icon>
+          </button>
+        </mat-form-field>
+
+      </div>
+      <button mat-raised-button color="primary" routerLink="/todos/new">Add</button>
+
+      <div *ngFor="let todo of todos" class="card-container">
+        <app-todo-card *ngIf="!todo.deleted" [item]="todo" (onDelete)="todo.deleted = true"></app-todo-card>
+      </div>
+    </div>
+  </div>

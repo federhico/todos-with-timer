@@ -1,0 +1,23 @@
+<div class="container">
+  <h2 class="page-title">New Task</h2>
+  <form [formGroup]="todoForm">
+    <mat-form-field>
+      <mat-label>Title</mat-label>
+      <input formControlName="titleFormControl" matInput type="text" >
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Description</mat-label>
+      <textarea formControlName="descriptionFormControl" matInput type="text" ></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+      <mat-label>Priority</mat-label>
+      <mat-select formControlName="priorityFormControl">
+        <mat-option *ngFor="let priority of priorities ;let i = index" [value]="i">{{priority}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <br>
+    <button mat-raised-button color="primary"  (click)="create()">Add</button>
+  </form>
+</div>

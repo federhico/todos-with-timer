@@ -1,0 +1,52 @@
+.todo-card {
+  margin-top: 1em;
+}
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1em;
+}
+.footer {
+  margin-top: 1em !important;
+  margin-bottom: 1em !important;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+.priority-0 {
+  color: red !important;
+}
+
+.priority-1 {
+  color: orange !important;
+}
+
+.priority-2 {
+  color: green !important;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-left: 3em;
+}
+
+.description {
+  display: flex;
+  flex:1;
+  padding: 1em;
+}

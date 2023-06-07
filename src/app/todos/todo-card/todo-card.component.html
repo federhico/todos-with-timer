@@ -1,0 +1,27 @@
+<mat-card class="todo-card">
+  <div class="header">
+    <div class="bookmark">
+      <mat-icon [class]="'priority-' + item.priority">bookmark</mat-icon>
+    </div>
+    <div class="title">
+      <h2 style="margin: 0">{{ item.title }}</h2>
+      <p>(Spent: {{ item.spent | date:'mm \'m\' ss \'s\''}})</p>
+    </div>
+    <div class="description">
+      {{item.description}}
+    </div>
+    <div class="clock">
+      <app-todo-timer [item]="item" *ngIf="!item.done" class="todo-timer" (onFinish)="updateTime($event, item)"></app-todo-timer>
+    </div>
+    <div class="actions">
+      <button routerLink="/todos/edit/{{item.id}}" *ngIf="!item.done" mat-icon-button>
+        <mat-icon  >edit</mat-icon>
+      </button>
+      <button (click)="deleteTodo(item)" mat-icon-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+
+      <mat-checkbox (change)="item.done = !item.done"></mat-checkbox>
+    </div>
+  </div>
+</mat-card>
